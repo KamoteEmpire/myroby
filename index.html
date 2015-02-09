@@ -1,0 +1,1496 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,  user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=3">
+	<title>Roby GAME</title>
+	
+	
+	<!--====================================== bootstrap style START ==============================================-->
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+	<!--====================================== bootstrap style END ==============================================-->
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+			
+		}
+		div{
+			
+			-webkit-border-radius: 5px 5px 5px 5px;
+			border-radius: 5px 5px 5px 5px;
+		}
+		.modal-container{
+			-webkit-border-radius: 0px;
+			border-radius: 0px;
+		}
+		.noPadding{
+			padding:0;
+		}
+		.noMargin{
+			margin:0;
+		}
+		.noBg{
+			background:none;
+		}
+		.noBorder{
+			border:0;
+		}
+		html,body{
+			font-family: Segoe Ui;
+			position:relative;
+			height:100%;
+			width:100%;
+			
+			max-width:100%;
+			max-height:100%;
+			min-height:100%;
+			min-width:100%;
+			text-align:center;
+			z-index:99;
+			
+			
+		}
+		body{
+			padding:2%;
+		}
+		span{
+			
+		}
+		.header-container{
+			margin:0 auto;
+			width:96%;
+			min-height:20%;
+			max-height:35%;
+			display:block;
+			position:relative;
+			text-align:center;
+			padding:1.5em 0;
+			
+		}
+		.header-box{
+			height:100%;
+			max-width:100%;
+			max-height:100%;
+			position:relative;
+			width:46%;
+			margin:0 .5%;
+			display:inline-block;
+			height:100%;
+			background:red;
+			background:#BBADA0;
+			color:#fff;
+			text-align:left;
+			vertical-align:top;
+		}
+		
+		.header-box-container{
+			width:100%;
+			height:33%;
+			max-height:33%;
+			min-height:10%;
+			background:red;
+			background:none;
+			margin-top:.1em;
+			color:#fff;
+			overflow:hidden;
+			
+		}
+		
+		.tap-container{
+			margin-left:2%;
+			width:96%;
+			height:55%;
+			max-height:65%;
+			position:relative;
+			display:block;
+			
+		}
+		.btnTap{
+			display:inline-block;
+			margin:0;
+			padding:0;
+			width:49.2%;
+			height:49.2%;
+			overflow:hidden;
+			vertical-align:text-bottom;
+			position:absolute;
+			
+		}
+		.btnTap-
+		a, button, .btn ,.btnTap, .btnCustom
+		{
+			-ms-touch-action: manipulation; /* IE10  */
+			touch-action: manipulation;     /* IE11+ */
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+			-ms-tap-highlight-color: rgba(0,0,0,0);
+			tap-highlight-color: rgba(0,0,0,0);
+		}
+		.btn{
+			margin:0;
+		}
+		.btn-value{
+			font-size:5em;
+			display:none;
+		}
+		.btn-0{
+			top:0;
+			left:0;
+			background:#c1392b;
+			
+			
+		}
+		.btn-1{
+			top:0;
+			right:0;
+			background:#d25400;
+			background:#fd761c;
+			
+		}
+		.btn-2{
+			bottom:0;
+			left:0;
+			background:#2a80b9;
+		}
+		.btn-3{
+			bottom:0;
+			right:0;
+			background:#f1c40f;
+		}
+		.boxNum {
+			font-size:3em;
+			top:10%;
+			left:40%;
+			position:absolute;
+			color:#fff;
+			
+		}
+		.modal-container{
+			width:100%;
+			height:100%;
+			position:fixed;
+			top:0;
+			left:0;
+			z-index:100;
+			background:rgba(0,0,0,.5);
+			display:none;
+		}
+		.modal{
+			width:94%;
+			height:90%;
+			top:5%;
+			left:3%;
+			position:fixed;
+			
+			position:absolute;
+			background:#2c2b2a;
+
+			display:none;
+			text-shadow: 1px 1px 1px #252525;
+			color:#fff;
+			padding:.1em .5em;
+		}
+		#memorizeModal{
+			width:80%;
+			height:50%;
+			top:25%;
+			left:10%;
+			padding:0;
+			margin:0;
+		}
+		.boxInside{
+			padding:0;
+			margin:0;
+			width: 40%;
+			height: 40%;
+			position:relative;
+			display:inline-block;
+			vertical-align:text-top;
+		}
+		#gameOverModal, .collegeModal{
+			color:#fff;
+		}
+		#rsgModal{
+			color:#fff;
+			background:none;
+		}
+		.timerPressureContainer{
+			background:#dedede;
+			
+		}
+		.timerPressure{
+			background:#c1392b;
+			width:100%;
+			
+		}
+		.localTopScore{
+			
+		}
+		.notransition {
+		  -webkit-transition: null !important;
+		  -moz-transition: null !important;
+		  -o-transition: null !important;
+		  -ms-transition: null !important;
+		  transition: null !important;
+		  WebkitTransition = null;
+		}
+		h1{
+			
+		}
+		.header-box-right-holder{
+		float:right;
+		position:relative;
+		height:64px;
+		width:64px;
+		background:#93877B;
+		text-align:center;
+		vertical-align:middle
+		
+	}
+	.header-box-left-image{
+		position:absolute;
+		height:32px;
+		margin-top:18px
+	}
+	
+	.header-box-left-txt{
+		position:absolute;
+		left:12px;
+		top:30%;
+	}
+	
+	.header-container{
+		background:red;
+		background:none;
+	}
+	.tap-container{
+		background:blue;
+		background:none;
+	}
+	.txtAlignLeft{
+			text-align:left;
+		}
+		.txtAlignRight{
+			text-align:right;
+		}
+		.txtDark0{
+			color:#585757;
+		}
+		.headerIconImg{
+			margin-top:12px;height:40px;
+		}
+		.btnPlay{
+			position:absolute;
+			top:36%;
+			left:38%;
+			width:24%;
+			height:24%;
+			padding:20px;
+			vertical-align:center;
+			background:#fff;
+		}
+		.header-container-blocker ,.tap-container-blocker{
+			width:100%;
+			height:100%;
+			position:absolute;
+			background:none;
+			z-index:90;
+			
+		}
+	
+	.noPadding{
+			padding:0;
+		}
+		.noMargin{
+			margin:0;
+		}
+		.noBg{
+			background:none;
+		}
+		span{
+			position:absolute:left:0;bottom:0;
+		}
+	.header-box-left-image{
+		height:5vh;
+	}	
+	.header-box-right-holder{
+		width:16vw;
+		height:12vh;
+	}
+	span {
+	  font-size: 2.0vw;
+	  font-size: 2.0vh;
+	  font-size: 3vmin;
+	}
+	h1, h2 {
+	  font-size: 3.0vh;
+	}
+	p {
+	  font-size: 2vmin;
+	}
+	.btnShowMainMenu{
+		position:absolute;
+		top:0;
+		right:0;
+		color:#2c2b2a;
+	}
+	table img{
+		width:1em;
+		height:1em;
+		
+	}
+	th{
+		font-size: 3.0vh;
+	}
+	table{
+		 font-size: 2.0vw;
+	  font-size: 2.0vh;
+	  font-size: 3vmin;
+	  text-align:left;
+	}
+	.midSizeTxt{
+		 font-size: 3.0vw;
+	  font-size: 3.0vh;
+	  font-size: 4vmin;
+	}
+	#postBestScoreModal{
+		height:50%;
+		top:25%;
+	}
+	</style>
+	
+	
+	
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.google.fastbutton.js"></script>
+	<script type="text/javascript" src="js/google.fastbutton.js"></script>
+	
+	<script type="text/javascript" src="js/jquery.transit.js"></script>
+	
+	<!-- fb scripts START -->
+	<script type="text/javascript" src="js/fb-script.js"></script>
+	<script type="text/javascript" src="js/openfb.js"></script>
+	<script type="text/javascript" src="js/jquery.ajax-cross-origin.min.js"></script>
+	<!-- fb scripts END -->
+	
+	<!-- bootstrap scripts START -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<!-- bootstrap scripts END -->
+	
+	<!-- Ads Code Start Here -->
+	<script>
+    function onDocLoad() {
+        if(( /(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent) )) {
+            document.addEventListener('deviceready', initApp, false);
+        } else {
+            initApp();
+        }
+    }
+    
+    function initApp() {
+        initAd();
+        // display the banner at startup
+        window.plugins.AdMob.createBannerView();
+    }
+    function initAd(){
+        if ( window.plugins && window.plugins.AdMob ) {
+    	    var ad_units = {
+				ios : {
+					banner: 'ca-app-pub-8723897361702554/8259726422',
+					interstitial: 'ca-app-pub-8723897361702554/5386985227'
+				},
+				android : {
+					banner: 'ca-app-pub-8723897361702554/8259726422',
+					interstitial: 'ca-app-pub-8723897361702554/5386985227'
+				},
+				wp8 : {
+					banner: 'ca-app-pub-8723897361702554/8259726422',
+					interstitial: 'ca-app-pub-8723897361702554/5386985227'
+				}
+    	    };
+    	    var admobid = "";
+    	    if( /(android)/i.test(navigator.userAgent) ) {
+    	    	admobid = ad_units.android;
+    	    } else if(/(iphone|ipad)/i.test(navigator.userAgent)) {
+    	    	admobid = ad_units.ios;
+    	    } else {
+    	    	admobid = ad_units.wp8;
+    	    }
+            window.plugins.AdMob.setOptions( {
+                publisherId: admobid.banner,
+                interstitialAdId: admobid.interstitial,
+                bannerAtTop: false, // set to true, to put banner at top
+                overlap: false, // set to true, to allow banner overlap webview
+                offsetTopBar: false, // set to true to avoid ios7 status bar overlap
+                isTesting: false, // receiving test ad
+                autoShow: true // auto show interstitial ad when loaded
+            });
+            registerAdEvents();
+            
+        } else {
+            alert( 'admob plugin not ready' );
+        }
+    }
+	// optional, in case respond to events
+    function registerAdEvents() {
+    	document.addEventListener('onReceiveAd', function(){});
+        document.addEventListener('onFailedToReceiveAd', function(data){});
+        document.addEventListener('onPresentAd', function(){});
+        document.addEventListener('onDismissAd', function(){ });
+        document.addEventListener('onLeaveToAd', function(){ });
+        document.addEventListener('onReceiveInterstitialAd', function(){ });
+        document.addEventListener('onPresentInterstitialAd', function(){ });
+        document.addEventListener('onDismissInterstitialAd', function(){ });
+    }
+    function onResize() {
+        var msg = 'web view: ' + window.innerWidth + ' x ' + window.innerHeight;
+        document.getElementById('sizeinfo').innerHTML = msg;
+    }
+    </script>
+</head>
+<body onload="onDocLoad()">
+	<!-- modal START-->
+	<div class="modal-container">
+		<div class="modal" id="memorizeModal">
+			<div class="boxInside boxInside-0"><span class="boxNum boxNum-0"></span></div>
+			<div class="boxInside boxInside-1"><span class="boxNum boxNum-1"></span></div>
+			<div class="boxInside boxInside-2"><span class="boxNum boxNum-2"></span></div>
+			<div class="boxInside boxInside-3"><span class="boxNum boxNum-3"></span></div>
+		</div>
+		
+		<div class="modal" id="gameOverModal">
+			<button class="btnShowMainMenu btn">x</button>
+			<div class="form-group">
+				<h3>Game Over!</h3>
+				<!-- <h1><span class = "txtPostScore">Post Score Modal</span></h1> -->
+				<span class = "txtPostScore">Post Best Score Online</span><br />
+				<b class="msgEncourage"></b><br />
+				Your Score: <span class="score"></span><br />
+				<h3 class="msgNewTopScore">Your Top Score: </h3> <span class="localTopScore"></span><br />
+				
+			</div>	
+			<div class="form-group">
+				<button class="btnPlayAgain btn btn-lg btn-warning">Play Again</button><br />
+			</div>
+			
+			<div class="form-group">
+				<button class="btnFbLogin btn btn-lg btn-primary" style = "display:none">FB LOGIN</button><br />
+				<button class="btnPostScore btn btn-lg btn-success" style = "display:none">POST SCORE</button><br />
+			</div>
+			
+			<!-- <div class="form-group">
+				Total STORED SCORE: <span class="localStoredScore"></span><br />
+				<div class="btn btn-default">PUT Score ONLINE!</div>
+			</div> -->
+			
+		</div>
+		<div class="modal college-container" id = "collegeModal" style = "text-align:center; z-index:13">
+			<input type = "text" id = "college" value = "" hidden />
+			<h3>CHOOSE COLLEGE</h3>
+			<button class="btnCba btn btn-lg col-lg-6 col-md-6 col-sm-6 col-xs-6" style = "background:yellow">CBA</button>
+			<button class="btnCcs btn btn-lg btn-warning col-lg-6 col-md-6 col-sm-6 col-xs-6" >CCS</button>
+			<button class="btnCahs btn btn-lg btn-danger col-lg-6 col-md-6 col-sm-6 col-xs-6">CAHS</button>
+			<button class="btnCeas btn btn-lg btn-info col-lg-6 col-md-6 col-sm-6 col-xs-6">CEAS</button><br ><br />
+			<button class="btnAddCollege btn btn-lg btn-success" onclick = "">OK</button><br />
+		</div>
+		
+		<div class="modal" id="rsgModal" style="padding-top:45%">
+			<span class="msgRsgTimer" style="font-size:3em;"></span>
+		</div>
+		
+		<div class="modal" id="mainMenuModalTest">
+			<h1>Welcome To ROBY GAME</h1>
+			<h3>Prototype v5.3-- JQUERY TRANSIT</h3>
+			
+			<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<b>Instruction:</b> 
+				Memorize the 4 colors and its VALUE of TAP that will popout,
+				Tap ROBY correctly before time runs out. ENJOY!
+			</div>
+			
+			<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<button class="btnPlay btn btn-lg btn-warning">Play</button>
+			</div>
+			<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<button class="btnLeaderboard btn btn-lg btn-warning">LeaderBoard</button>
+				<button class="stop">Stop</button>
+			</div>
+		</div>
+		
+		<div class="modal" id="infoModal">
+			<!-- <h1>Information Modal</h1> -->
+			<h3>How To Play</h3>
+			
+			<button  class="btn btnCustom btnShowMainMenu">
+				X
+			</button>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="position:absolute;bottom:0%;height:90%;left:2%;width:96%;padding:0;text-align:center;overflow:auto;">
+				<img src="img/info-1.png" alt="" class="img-thumbnail" style=""/>
+				<img src="img/info-2.png" alt="" class="img-thumbnail" style=""/>
+				<img src="img/info-3.png" alt="" class="img-thumbnail" style=""/>
+			</div>
+			<!-- 
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="position:absolute;bottom:0;height:10%;left:0%;padding:0;">
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="background:#C1392B;height:100%"><span style="position:absolute;top:25%;">1</span></div>
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="background:#FD761C;height:100%"><span style="position:absolute;top:25%;">2</span></div>
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="background:#2A80B9;height:100%"><span style="position:absolute;top:25%;">3</span></div>
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="background:#F1C40F;height:100%"><span style="position:absolute;top:25%;">4</span></div>
+			</div> -->
+		</div>
+		<div class="modal" id="leaderboardModal">
+			<h3>LeaderBoard Modal</h3>
+			<button  class="btn btnCustom btnShowMainMenu">
+				X
+			</button>
+			<table id="leaderboardTable"  class="table table-hover table-striped">
+				<thead>
+					<tr class="">
+						<th class="">RANK</th>
+						<th class="">COLLEGE</th>
+						<th class="">NAME</th>
+						<th class="">SCORE</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="modal" id="postBestScoreModal">
+			<button  class="btn-default btn btnCustom btnShowMainMenu">X</button>
+			<h3>Post Best Score Online</h3>
+			<h1><span class = "txtPostScore"></span></h1>
+			<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<button class="btnFbLogin btn btn-lg btn-primary" style = "display:none">FB LOGIN</button><br />
+				<button class="btnPostScore btn btn-lg btn-success" style = "display:none">POST SCORE</button><br />
+			</div>
+			
+		</div>
+		
+	</div>
+	<!-- modal END-->
+
+	<div class="header-container">
+		
+		<!--
+		v5.5 up to Level 3 only (2-4 numbers), with meter(nakahide lang)
+		<br />
+		TOP SCORE: <b><span class="localTopScore"></span></b><br />
+		Total STORED SCORE: <span class="localStoredScore"></span><br />
+		Level: <span class="levelCounter"></span>
+		Score: <b><span class="score">0</span></b><br />
+		Timer: <span class="timer">0</span><br />
+		-->
+		<div class="header-container-blocker" style=""></div>
+		<!-- <div class="header-box-container">
+			<div class="header-box noBg" >
+				<img src="img/game-title.png" class="header-box-left-image"   alt="" /> 
+				
+				<div class="header-box-right-holder btnCustom btnShowInfoModal" style="">
+					<img src="img/info.png" class="headerIconImg" alt="" /> 
+				</div>
+			
+			</div>
+			<div class="header-box btnCustom btnShowLeaderBoard" style="">
+			
+				<span class="header-box-left-txt">
+					LEADERBOARD
+				</span>
+				
+				<div class="header-box-right-holder">
+					<img src="img/trophy.png" class="headerIconImg" alt="" />
+				</div>
+			</div>
+		</div>
+		
+		<div class="header-box-container" style="clear:both">
+			<div class="header-box btnCustom btnShowPostBestScoreModal" >
+				<span class="header-box-left-txt" style="top:15%">
+					<b>BEST SCORE:</b><br />
+					<span class="localTopScore"></span>
+				</span>
+				<div class="header-box-right-holder" >
+					<img src="img/star.png" class="headerIconImg" alt="" />
+				</div>
+			</div>
+			<div class="header-box btnCustom">
+				<span class="header-box-left-txt" style="top:15%">
+					<b>RANK:</b><br />
+					robyRabbit
+				</span>
+				<div class="header-box-right-holder"  >
+					<img src="img/plus.png" class="headerIconImg" alt="" />
+				</div>
+			</div>
+		</div>
+		<div class="header-box-container">
+			<div class="header-box noBg txtAlignLeft txtDark0" >
+				<span>Score:</span> 
+				<span class="score">0</span>
+			</div>
+			<div class="header-box noBg txtAlignRight txtDark0" > 
+				<span>Timer:</span> 
+				<span class="timer" style="color:#ed5151">0</span>
+			</div>
+		</div> -->
+		
+		<!--
+		<div class="progress col-lg-10 col-md-10 col-sm-10 col-xs-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 noPadding timerPressureContainer" >
+			<div class="progress noPadding timerPressure" >
+				
+			</div>
+		</div>
+		-->
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 noPadding header-box-container" >
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPadding boBg txtAlignRight"  style="text-align:right;">
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 " style="text-align:left;padding-top:1em;">
+					<img src="img/game-title.png" class="img-responsive noBg noBorder" alt=""  style=""/>
+					
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 noPadding btnShowInfoModal btnCustom">
+					<img src="img/info.png" class="img-thumbnail noBorder"  style="background:#93877B;padding:.5em" alt="" />
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPadding btnShowLeaderBoard btnCustom"  style="background:#BBADA0;text-align:right;">
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 " style="text-align:left;padding-top:.5em;">
+					<span>Leaderboard</span>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 noPadding">
+					<img src="img/trophy.png" class="img-thumbnail noBorder"  style="background:#93877B;padding:.5em" alt="" />
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 noPadding header-box-container btnCustom btnShowPostBestScoreModal" >
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPadding "  style="background:#BBADA0;text-align:right;">
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 " style="text-align:left;padding-top:.5em;">
+					<span>Best Score</span><br />
+					<span class="localTopScore"></span>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 noPadding">
+					<img src="img/star.png" class="img-thumbnail noBorder"   style="background:#93877B;padding:.5em" alt="" />
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPadding btnCustom"  style="background:#BBADA0;text-align:right;">
+			
+				<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="text-align:left;padding-top:.5em;">
+					<span>Rank: </span><br />
+					<span>Rabbit</span>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 noPadding">
+					<img src="img/plus.png" class="img-thumbnail noBorder"  style="background:#93877B;padding:.5em" alt="" />
+				</div>
+				
+			</div>
+		
+			
+		</div>
+		
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 noPadding header-box-container " >
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 noPadding  noBg"  style="text-align:right;border:2px solid #fff;">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 noBg noPadding " style="text-align:left;color:#313131;">
+					<span class="midSizeTxt">Score :</span>
+					<span class="score midSizeTxt"></span>
+				</div>
+				
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 noPadding "  style="text-align:right;border:2px solid #fff;">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 noPadding" style="text-align:center;color:#313131">
+					
+				</div>
+				
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 noPadding "  style="text-align:right;border:2px solid #fff;">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 noPadding noBg" style="text-align:right;color:#313131">
+					<span class="midSizeTxt">Timer: </span>
+					<span class="timer midSizeTxt"></span>
+				</div>
+				
+			</div>
+		
+			
+		</div>
+	</div>
+	
+	<div class="tap-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<div class="btnPlay btn" style="z-index:91;padding:0;margin:0;" >
+			<img src="img/play.png" class="btnPlayImg"  alt="" /> 
+				
+		</div>
+		<div class="tap-container-blocker" style=""></div>
+		<div class="btnTap btn-0"><span class="btn-value" id="tapBtn-0"></span></div>
+		<div class="btnTap btn-1"><span class="btn-value" id="tapBtn-1"></span></div>
+		<div class="btnTap btn-2"><span class="btn-value" id="tapBtn-2"></span></div>
+		<div class="btnTap btn-3"><span class="btn-value" id="tapBtn-3"></span></div>
+		
+	</div>
+	
+
+</body>
+
+<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	//need variables START
+	var getPhoneGapPath = function() {
+			var path = window.location.pathname;
+			path = path.substr( path, path.length - 10 );
+			return path;
+		};
+		var soundCounter = 0;
+		var soundEffect = null;
+		function playSouncEffect(){
+			if(soundEffect){ 
+			   soundEffect.stop();
+			   soundEffect.release();
+			 }
+			soundEffect = new Media( getPhoneGapPath() + "sound/chop.ogg", onSuccess, onError, onStatus);
+			soundEffect.play();
+			soundEffect.setVolume('1');
+		}
+		
+		// onSuccess Callback
+		function onSuccess() {
+			soundEffect.stop();
+			soundEffect.release();
+		}
+		// onError Callback 
+		function onError(error) {
+			soundEffect.stop();
+			soundEffect.release();
+		}
+		// onStatus Callback 
+		function onStatus(status) {
+		}
+	$(".btnLeaderboard").fastClick(function(){
+		
+		$(this)
+		//	.transition({ x: 20},50)
+		//	.transition({ x: -20 },50)
+		//	.transition({ x: 20},50)
+		//	.transition({ x: -20 },50)
+		//	.transition({ x: 0 },50);
+		
+			.transition({ scale: 0.8},50)
+			.transition({ scale: 1.2},50)
+			.transition({ scale: 1},5000);
+	});
+	//alert($(window).height());
+	
+	$(".boxInside").css({"position":"absolute"});
+	documentHeight = $(window).height();
+	documentWidth = $(window).width();
+	memoHeight = documentHeight * .50;
+	//alert(memoHeight);
+	memoHeight = ((memoHeight * .09));
+	//alert(memoHeight);
+
+	memoWidth = documentWidth * .80;
+	memoWidth = (memoWidth * .09);
+	//$("#memorizeModal").css("padding-top",memoHeight+"px");
+	$(".boxInside-0").css({"top":memoHeight+"px","left":memoWidth+"px"});
+	$(".boxInside-1").css({"top":memoHeight+"px","right":memoWidth+"px"});
+	$(".boxInside-2").css({"bottom":memoHeight+"px","left":memoWidth+"px"});
+	$(".boxInside-3").css({"bottom":memoHeight+"px","right":memoWidth+"px"});
+	$(".stop").fastClick(function(){
+		$(".btnLeaderboard").css({"WebkitTransition":"null"});
+	});
+	
+	btnPlayWidth = (documentWidth * .24)*.30;
+	btnPlayHeight = (documentHeight * .24)*.30;
+	btnPlayMarginTop = (documentHeight * .24)*.10;
+	$(".btnPlayImg").css({"width":btnPlayWidth,"height":btnPlayHeight});
+	$(".btnPlayImg").css({"margin-top":btnPlayMarginTop});
+	//alert(btnPlayWidth);
+	//alert(btnPlayHeight);
+	//showThisModal("infoModal");
+	var timer; 
+	var pressureTimerCount;
+	var pressureTimer;
+	var levelCounter; 
+	var score; 
+	var randZero, randOne, randTwo, randThree;
+	var pointsCounterToLevelUp;
+	var pointsToLevelUp; //points needed to level up
+	var numberRange; //range of numbers
+	var levelRange; //up to what level
+	var arrayColorsNumbers = [{"color":"#c1392b","number":"999"},{"color":"#fd761c","number":"999"},{"color":"#2a80b9","number":"999"},{"color":"#f1c40f","number":"999"}];
+	var getMsgEncourage = function(){
+			
+			a = ["Bukod Tangi lang! BSCS 4a!","Practice ka pa OY!","Seryoso na siya oh hehe","MASAYA KA?","Gulat ka noh? haha","TODO na yan?", "KAYA PA?", "Ayan na SCORE mo?", "Hello BOB! hahaha", "SMILE ka naman dyan! hehe", "Aba MATINDE!hahaha", "Edi WOW! haha", "PUSH mo pa Teh!", "Push mhue Lharngs!", "Weak! Weak! Weak mO! :P"];
+			
+			b = Math.floor(Math.random()*a.length+0);
+			c = a[b];
+			
+			if(score == 0){
+				a = ["zero! itlog! BOKYA! hahahaha","Hala siya.. OK ka lang?", "WOW! Perfect 0! hahaha"]
+				b = Math.floor(Math.random()*a.length+0);
+				c = a[b];
+			}
+			
+			$(".msgEncourage").html(c);
+			return a[b];
+		};
+	var memorizeModalSpeed;//time of memorize modal show
+	var getLocalTopScore = function(){
+		var a = window.localStorage.getItem("localTopScore");
+		if(a == undefined || a == null || a == "NaN" || a == "undefined" || a == "null"){
+			window.localStorage.setItem("localTopScore",0);
+			a = 0;
+		}
+		
+		$(".localTopScore").html(a);
+		return parseInt(a);
+		
+	};
+	
+	var setCompareToLocalTopScore = function(){
+		var localTop = getLocalTopScore();
+		if(score > localTop){
+			window.localStorage.setItem("localTopScore",score);
+			getLocalTopScore();
+			//$(".msgNewTopScore").html("NEW Top Score:"+score);
+			a = ["TsambaGOD!","My Cheats ka noh?","Tsamba tsamba Din!", "Magaling k na nyan?", "TOP Score mo na yan?", "Edi Ikaw na! THE BEST KA!"];
+			b = Math.floor(Math.random()*a.length + 0);
+			c = a[b];
+			
+			$(".msgEncourage")
+				.transition({ scale: 1.8,delay:0},0)
+				.transition({ scale: 1,delay:0},100);
+			$(".msgEncourage").html(c);
+			
+			$(".msgNewTopScore").html("NEW Top Score:");
+		}else{
+			//clear msgNewTopScore
+			$(".msgNewTopScore").html("Your Top Score:");
+		}
+	}
+	
+	var getLocalStoredScore = function(){
+		//$(".msgEncourage").html("TODO na yan?");
+		var a = window.localStorage.getItem("localStoredScore");
+		if(a == undefined || a == null || a == "NaN" || a == "undefined" || a == "null"){
+			window.localStorage.setItem("localStoredScore",0);
+			a = 0;
+		}
+		
+		$(".localStoredScore").html(a);
+		return parseInt(a);
+	}
+	
+	var addToLocalStoredScore = function(){
+		var a = parseInt(window.localStorage.getItem("localStoredScore"));
+		var b = parseInt(score);
+		var c = a + b;
+		window.localStorage.setItem("localStoredScore",c);
+		getLocalStoredScore();
+		
+	}
+	//need variables END
+	//showThisModal("mainMenuModalTest");//testing modal to edit
+	$(".header-container-blocker").transition({scale:0},0);
+	$(".tap-container-blocker").transition({scale:1},0);
+	getLocalStoredScore();
+	getLocalTopScore();
+	levelCounter = 1;
+	score = 0;
+	pointsCounterToLevelUp = 0;
+	pointsToLevelUp = 10;
+	numberRange = 2;
+	levelRange = 3;
+	numberAddInRange = 1;
+	memorizeModalSpeed = 3000;//1k is equal to 1sec
+	
+	
+	
+	$(".btnPlayAgain").fastClick(function(e){
+		newGame();
+	});
+	$(".btnPlay").fastClick(function(){
+		$(".btnPlay")
+			.transition({ scale: 0.9,delay:0},0)
+			.transition({ scale: 1.3,delay:0},0)
+			.transition({ scale: 0,delay:0},500);
+		newGame();
+	});
+	
+	$(".btnShowInfoModal").fastClick(function(){
+		showThisModal("infoModal");
+	});
+	
+	
+	$(".btnShowPostBestScoreModal").fastClick(function(){
+		localStorage.setItem('fb_login','post_score');
+		$('.txtPostScore').html('');
+		checkIfLogin();
+		showThisModal('postBestScoreModal');
+		
+		
+	});
+	$(".btnShowMainMenu").fastClick(function(){
+		showMainMenu();
+	});
+
+	$(".btnCustom").fastClick(function(){
+		playSouncEffect();
+		$(this)
+			.transition({ scale: 0.95,delay:0},100)
+			.transition({ scale: 1,delay:0},1);
+			
+	});
+	$(".btnTap").fastClick(function(e){
+		playSouncEffect();
+		a = parseInt($(this).find(".btn-value").html());
+		$(this).find(".btn-value").html(a - 1);
+		b = $(this).find(".btn-value").html();
+		
+		if(b < 0){
+			//GAME OVER
+			//$(this).velocity('callout.shake',500);
+			$(this)
+			.transition({ x: 20},50)
+		 	.transition({ x: -20 },50)
+		 	.transition({ x: 20},50)
+			.transition({ x: -20 },50)
+			.transition({ x: 0 },50);
+			
+			
+			
+			//alert("BOBO MO! \n  Game Over! SCORE ="+score);
+			$(".timerPressure").transition({"width":"100%"},100);
+			addToLocalStoredScore();
+			gameOver();
+			
+			
+		}else{
+			//$(this).velocity('callout.pulse',100);
+			$(this)
+			.transition({ scale: 0.97,delay:0},100)
+			.transition({ scale: 1,delay:0},1);
+			//correct
+			//add score
+			addScore();
+		}
+		checkSet();
+	});
+	
+	
+	function showHideMemorizeModal(){
+		//hide other modal
+		
+		
+		$(".modal").transition({display:"none",delay:0});//hide
+		$(".modal-container").transition({display:"block",delay:0});//show
+		$("#memorizeModal")
+			.transition({scale:0,delay:0},1)
+			.transition({display:"block",delay:0},1)
+			.transition({scale:1.1},100)
+			.transition({scale:.9},250)
+			.transition({scale:1.05},200)
+			.transition({scale:1.},200);
+		setTimeout(function(){
+			//$("#memorizeModal").velocity('transition.bounceOut',400);
+			//bounceOut
+			$("#memorizeModal")
+				.transition({scale:1},200)
+				.transition({scale:1.05},200)
+				.transition({scale:0},250)
+				.transition({display:"none",delay:0},1);
+			setTimeout(function(){
+				//$(".modal-container").velocity('transition.fadeOut',300);
+				$(".modal-container").transition({display:"none",delay:0},300);//hide
+			},300);
+		},memorizeModalSpeed);
+		
+		
+		setTimeout(function(){
+			startPressureTimer();
+		},3300);
+		
+	}
+	
+	function showMainMenu(){
+		$(".score").html(0);
+		$(".modal-container").transition({display:"none",delay:0});//show
+		$(".modal").transition({display:"none",delay:0});
+		$(".btnPlay")
+			.transition({ scale: 0,delay:0},0)
+			.transition({ scale: 1.3,delay:0},400)
+			.transition({ scale: 1,delay:0},400);
+		
+	}
+	function showThisModal(idOfModal){
+		//$(".modal-container").velocity('transition.fadeIn',1);
+		$(".modal-container").transition({display:"block",delay:0});//show
+		
+		
+		//hide other modal
+		//$(".modal").velocity('transition.fadeOut',1);
+		$(".modal").transition({display:"none",delay:0});
+		//$("#"+idOfModal).velocity('transition.bounceIn');
+		$("#"+idOfModal)
+			.transition({scale:0,delay:0},1)
+			.transition({display:"block",delay:0},1)
+			.transition({scale:1.1},100)
+			.transition({scale:.9},250)
+			.transition({scale:1.05},200)
+			.transition({scale:1.},200);
+		
+	}
+	
+	function gameOver(){
+		localStorage.setItem('fb_login','gameover');
+		checkIfLogin();
+		$(".tap-container-blocker").transition({scale:1},0);
+		$(".header-container-blocker").transition({scale:0},0);
+		
+		clearPressureTimer();
+		getMsgEncourage();
+		setCompareToLocalTopScore();
+		$('.txtPostScore').html('');
+		showThisModal("gameOverModal");
+	}
+	function getRandomNums(){
+		arrayColorsNumbers = [{"color":"#c1392b","number":"999"},{"color":"#fd761c","number":"999"},{"color":"#2a80b9","number":"999"},{"color":"#f1c40f","number":"999"}];
+	
+		for(i = 0;i < 4;i++){
+			a = Math.floor(Math.random()*numberRange+0);
+			arrayColorsNumbers[i].number = (a);
+		}
+		numbersTotal = arrayColorsNumbers[0].number + arrayColorsNumbers[1].number + arrayColorsNumbers[2].number + arrayColorsNumbers[3].number;
+		//check if all array is equal to zero START
+		if(numbersTotal == 0){
+			//if numbersTotal == 0 ,produce one random number
+			a = Math.floor(Math.random()*3);//random position of number
+			b = Math.floor(Math.random()*numberRange+1);//random  value of number
+			arrayColorsNumbers[a].number = b;
+		}
+		//check if all array is equal to zero END
+		timer = arrayColorsNumbers[0].number + arrayColorsNumbers[1].number + arrayColorsNumbers[2].number + arrayColorsNumbers[3].number;
+		timer = Math.floor(timer*1);// times .50 to get its 50%
+	
+		if(timer < 2){
+			timer = timer+1;
+		}else if(timer < 1){
+			timer = timer+2;
+		}
+		
+		//timer = 10;//to EDIT
+		
+		for(i = 0;i < 4;i++){
+			$("#tapBtn-"+i).html(arrayColorsNumbers[i].number);
+		}
+		//random memorize ITEMS START
+		
+		arrayColorsNumbersToRandom = arrayColorsNumbers;
+		z = arrayColorsNumbersToRandom.length;
+		var randomizeColorsNumbers = [];
+		while (z--){
+			j = Math.floor(Math.random()*(z+0));
+			randomizeColorsNumbers.push(arrayColorsNumbersToRandom[j]);
+			arrayColorsNumbersToRandom.splice(j,1);
+		}
+		for(i = 0;i < 4;i++){
+			$(".boxInside-"+i).css({"background":randomizeColorsNumbers[i].color});
+			$(".boxNum-"+i).html(randomizeColorsNumbers[i].number);
+		}
+		//random memorize ITEMS END
+		showHideMemorizeModal();
+		
+	}
+	
+	function checkSet(){
+		randZero = parseInt($("#tapBtn-0").html());
+		randOne = parseInt($("#tapBtn-1").html());
+		randTwo = parseInt($("#tapBtn-2").html());
+		randThree = parseInt($("#tapBtn-3").html());
+		if(randZero == 0 && randOne == 0 && randTwo == 0 && randThree == 0){
+			//alert("Good Job!");
+				
+			$(".timerPressure").transition({"width":"100%"},100);
+			
+				clearPressureTimer();
+				getRandomNums();
+			}
+	}
+	
+	
+	
+	function addScore(){
+		$(".score")
+			.transition({ scale: 1.8,delay:0},0)
+			.transition({ scale: 1,delay:0},100);
+		score = score+1;
+		
+		pointsCounterToLevelUp = pointsCounterToLevelUp + 1;
+		$(".score").val(score),
+		$(".score").html(score);
+		
+		
+		if(pointsCounterToLevelUp == pointsToLevelUp){
+			pointsCounterToLevelUp = 0;
+			if(levelCounter != levelRange){
+				levelCounter = levelCounter + 1;
+				numberRange = numberRange + numberAddInRange;
+			}else{
+				levelCounter = levelCounter;
+			}
+			$(".levelCounter").html(levelCounter);
+			//alert("levelUP!");
+			}
+		setCompareToLocalTopScore()
+	}
+	
+	function newGame(){
+		$(".tap-container-blocker").transition({scale:0},0);
+		$(".header-container-blocker").transition({scale:1},0);
+		resetGameElements();
+		levelCounter = 1;
+		numberRange = 2;
+		
+		score = 0;
+		pointsCounterToLevelUp = 0;
+		//getRandomNums();
+		showThisModal("rsgModal");
+		startRsgTimer();
+		//alert("Welcome to ROBY GAME! \n NEW GAME!");
+		//$(".btn").css({"background":"none"});
+		
+		
+	}
+	function resetGameElements(){
+		$(".score").html(0);
+		$(".score").val(0);
+		$(".timer").html(0);
+		$(".timer").val(0);
+		$(".levelCounter").html(1);
+	}
+
+
+	function startPressureTimer(){
+		$(".timerPressure").transition({"width":"100%"},100);
+		//percentTimer = (timer * 1000);//1k is equal to 1sec
+		percentTimer = (100/timer);
+		$(".timer").html(timer);
+		
+		//$(".timerPressure").transition({"width":"0"},percentTimer);
+		clearTimeout(pressureTimerCount);
+		clearInterval(pressureTimerCount);
+		clearTimeout(pressureTimer);
+		clearInterval(pressureTimer);
+		setTimeout(function(){
+			pressureTimerCount = setInterval(function(){pressureTimer()},1000);
+		});
+	}
+	
+	function pressureTimer(){
+		timer--;
+		a = percentTimer * timer;
+		$(".timerPressure").transition({width:a+"%"});
+		setTimeout(function(){
+			$(".timer").val(timer);
+			$(".timer").html(timer);
+		});
+		
+		if(timer==0){
+			clearTimeout(pressureTimerCount);
+			clearInterval(pressureTimerCount);
+			clearTimeout(pressureTimer);
+			clearInterval(pressureTimer);
+			$(".timer").val(0);
+			$(".timer").html(0);
+			//GAME OVER
+			//alert("BOBO MO! \n  Game Over!");
+			gameOver();
+			//NEW GAME
+			//newGame();
+			
+		}
+	}
+	
+	function clearPressureTimer(){
+		clearTimeout(pressureTimerCount);
+		clearInterval(pressureTimerCount);
+		clearTimeout(pressureTimer);
+		clearInterval(pressureTimer);
+		
+		//$(".timerPressure").css({"WebkitTransition":"null"}),
+		$(".timer").val(0);
+		$(".timer").html(0);
+	}
+	
+	function startRsgTimer(){
+		rsgTimerValue = 3;
+		$(".msgRsgTimer").html("");
+		setTimeout(function(){
+			rsgTimerCount = setInterval(function(){rsgTimer();},700);
+		});
+	}
+	function rsgTimer(){
+		
+		if(rsgTimerValue == 3){
+			//$("#rsgModal").velocity("callout.pulse",300);
+			$(".msgRsgTimer").html("R O B Y");
+			
+		}else if(rsgTimerValue == 2){
+			//$("#rsgModal").velocity("callout.pulse",500);
+			$(".msgRsgTimer").html("SET!");
+		}else if(rsgTimerValue == 1){
+			//$("#rsgModal").velocity("callout.tada",400);
+			$(".msgRsgTimer").html("Go!");
+			clearInterval(rsgTimerCount);
+			setTimeout(function(){
+				getRandomNums();
+			},1100);
+		}
+		rsgTimerValue--;
+	}
+	
+	function createRandomColor(){
+		//random Color START
+		
+		for(i = 1;i < 5;i++){
+			colorArraySelectedIndex = Math.floor(Math.random()*colorArray.length+0);
+			$(".btn-"+i).css({"background-color":colorArray[colorArraySelectedIndex]});
+		}
+		//random Color END
+		
+	}
+	
+	
+	$('.btnPostScore').click(function(){
+			postScoreOnline();
+	});
+	
+	$('.btnCba').click(function(){
+			$('#college').val('CBA')
+	});
+	
+	$('.btnCcs').click(function(){
+			$('#college').val('CCS')
+	});
+	
+	$('.btnCahs').click(function(){
+			$('#college').val('CAHS')
+	});
+	
+	$('.btnCeas').click(function(){
+			$('#college').val('CEAS')
+	});
+
+	$(".btnShowLeaderBoard").click(function(){
+		
+			var rank = 0;
+			$.ajax({
+				url: "http://www.robygc.esy.es/phpfiles/user_show.php",
+				type: "GET",
+				dataType: "json",
+				success: function(data){
+					$("#useerPic").prop("src",data[0].user_pic);
+					$(".leaderboardRow").remove();
+					for(var i=0;i<data.length;i++){
+						rank++
+						
+						$('#leaderboardTable').append(
+						'<tr class="leaderboardRow "><td>'+ rank + '</td><td>'+data[i].user_college+'</td><td><img src="'+data[i].user_pic+'"/> '+data[i].user_fname+' '+data[i].user_lname+'</td><td>'+data[i].user_score+'</td> </tr>'
+						
+						);
+						
+					}
+					
+				},
+				error: function(){
+					//do something if error
+				}
+				
+			}).error(function(){
+				alert("error in internet connection");
+			});
+			showThisModal("leaderboardModal");
+		});	
+	function checkCollege(){
+		var check_college = window.localStorage.getItem("college");
+		if(check_college == "" || check_college == null){
+				showThisModal("collegeModal");
+				
+		}else{
+				
+		}
+			
+	}
+	
+	function checkIfLogin(){
+		var fb_id = window.localStorage.getItem("fb_id");
+		if(fb_id == "" || fb_id == null ){
+				$('.btnFbLogin').show();
+				$('.btnPostScore').hide();
+		}else{
+				$('.btnFbLogin').hide();
+				$('.btnPostScore').show();
+		}
+	}	
+	
+	
+	
+	function postScoreOnline(){		
+		//check if user is login
+		//check in local storage if user_username and user_id is stored
+		
+		checkIfLogin();
+		checkCollege();
+		var stud_id = window.localStorage.getItem("fb_id");
+		var total_score = window.localStorage.getItem("localStoredScore");
+		var top_score = window.localStorage.getItem("localTopScore");
+		
+		
+		$.ajax({
+			crossOrigin: true,
+			url: "http://www.robygc.esy.es/phpfiles/post_score_online.php",
+			type: "POST",
+			data: {"fb_id":stud_id,"total_score":total_score,"top_score":top_score},
+			success: function(data){
+				if(data=="not"){
+					alert("Failed");
+					
+				}else if(data=="success"){
+					alert("Ok na!. na POST NA BOOOOOOOOM!");
+				
+					
+				}
+				else{
+					$('.txtPostScore').html('YOUR SCORE HAS BEEN POSTED ONLINE!!!!!');
+					
+				}
+			},
+
+			
+		});
+		
+	}
+	$('.btnFbLogin').fastClick(function(){
+		login();
+	});
+	
+	$('.btnAddCollege').fastClick(function(){
+		addCollege();
+	});
+	
+	
+	function login() {
+
+        openFB.login(
+                function(response) {
+                    if(response.status === 'connected') {
+                        //alert('Facebook login succeeded');
+						getInfo();
+						
+                    } else {
+                       // alert('Facebook login failed: ' + response.error);
+                    }
+                }, {scope: 'email,public_profile'});
+    }
+
+    function getInfo() {
+        
+			openFB.api({
+				path: '/me',
+				success: function(data) {
+					console.log(JSON.stringify(data));
+						var uID = data.id;
+						var pic = "http://graph.facebook.com/" + data.id + "/picture?type=small";
+						var fname = data.first_name;
+						var lname = data.last_name;
+						
+						$.ajax({
+							crossOrigin: true,
+							url: "http://www.robygc.esy.es/phpfiles/user_add.php",
+							type: "GET",
+							data: {"user_ID":uID,"user_pic":pic,"fname":fname,"lname":lname},
+							dataType: "json",
+							success: function(data){
+								//location.href = "admin_students_page.php";
+								//alert("Succes");
+								window.localStorage.setItem("fb_id",uID);
+								window.localStorage.setItem("stud_name",fname);
+								var college = data.college;
+								
+								if(college == "" || college == null){
+										
+										showThisModal('collegeModal');							
+								}else{
+										
+										
+								}
+								checkIfLogin();
+								
+								
+							},
+							error: function(data){
+								//alert("Error");
+								//do something if error
+							}
+							
+						});
+					
+				},
+            error: errorHandler});
+    }
+
+    function revoke() {
+        openFB.revokePermissions(
+                function() {
+                   // alert('Permissions revoked');
+                },
+                errorHandler);
+    }
+
+    function logout() {
+        openFB.logout(
+                function() {
+                   //alert('Logout successful');
+                },
+                errorHandler);
+    }
+
+    function errorHandler(error) {
+       // alert(error.message);
+    }
+	
+	function addCollege(){
+		var college = $("#college").val();
+		if(college == null || college == ""){
+			//alert('select college');
+		}else{
+			var id = window.localStorage.getItem("fb_id");
+				$.ajax({
+					url: "http://www.robygc.esy.es/phpfiles/user_update.php",
+					type: "GET",
+					data: {"user_college":college,"user_id":id},
+					dataType: "json",
+					success: function(data){
+						
+						//alert("Acount Updated");
+						showMainMenu();
+						var check_panel = localStorage.getItem('fb_login')
+						if(check_panel == "gameover"){
+							showThisModal('gameOverModal');
+						}else{
+							showThisModal('postBestScoreModal');
+						}
+						
+						
+						window.localStorage.setItem("college",college);
+					},
+					error: function(data){
+						//alert("Error");
+						//do something if error
+					}
+					
+				});
+		}
+	}
+	
+});
+openFB.init({appId: '432269416939239', tokenStore: window.localStorage});			
+
+</script>
+</html>

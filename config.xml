@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.bukodtangi.roby"  version = "3.2.0" versionCode = "32" >
+
+        <name>ROBY</name>
+        <description>ROBY Game</description>
+        <author>BUKOD TANGI</author>
+		<gap:platforms>
+                <gap:platform name="ios" />
+                <gap:platform name="android" />
+                <gap:platform name="webos" />
+                <gap:platform name="symbian.wrt" />
+                <gap:platform name="blackberry" project="widgets"/>
+				
+		
+        </gap:platforms>
+		
+		<icon src="icons/128.png" gap:role="default" />
+		<preference name="phonegap-version" value="3.6.3" />
+		<feature name="http://api.phonegap.com/1.0/device"/>
+		<feature name="http://api.phonegap.com/1.0/media" /> 
+				
+        <access origin="*" subdomains="true" />
+        <access uri="*" subdomains="true" />
+                 <access uri="*" subdomains="true" />
+        <feature name="http://api.phonegap.com/1.0/network"/>
+        <feature name="InAppBrowser">
+		
+		<param name="android-package" value="org.apache.cordova.InAppBrowser" />
+
+        </feature>
+		<feature name="Media">
+			<param name="android-package" value="org.apache.cordova.media.AudioHandler" />
+		</feature>
+		<gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
+		<gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.9.0">
+			<param name="APP_ID" value="432269416939239" />
+			<param name="APP_NAME" value="TaptapGame" />
+		</gap:plugin>
+       <gap:plugin name="org.apache.cordova.media" />
+		<gap:plugin name="org.apache.cordova.core.Device"/>
+		<gap:plugin name="com.rjfun.cordova.plugin.admob" source="plugins.cordova.io" />
+        
+        <preference name="orientation" value="auto" />
+        <preference name="fullscreen" value="true" />
+        <preference name="target-device" value="universal" />
+
+</widget>
+
